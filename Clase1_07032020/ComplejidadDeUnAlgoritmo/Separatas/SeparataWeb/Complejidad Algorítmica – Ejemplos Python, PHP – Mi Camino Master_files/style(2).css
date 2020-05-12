@@ -1,0 +1,148 @@
+/*
+ Theme Name:   Baskervillen Child
+ Theme URI:    http://example.com/baskervillen/
+ Description:  Baskervillen Child Theme
+ Author:       Arturo Verbel
+ Author URI:   http://example.com
+ Template:     baskerville
+ Version:      1.0.0
+ License:      GNU General Public License v2 or later
+ License URI:  http://www.gnu.org/licenses/gpl-2.0.html
+ Tags:         light, dark, two-columns, right-sidebar, responsive-layout, accessibility-ready
+ Text Domain:  baskerville-child
+*/
+
+/*
+
+    HEADER
+
+  */
+.bg-dark {
+    background-color: #fff;
+}
+
+.bg-graphite {
+    background-color: #fff;
+}
+.nav-toggle.active .bar {
+    background: #8E8E8E;
+}
+
+.search-toggle {
+    display: none;
+}
+
+.navigation {
+    /* position: fixed; */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    z-index: 10;
+    -webkit-box-shadow: 0 7px 8px rgba(0, 0, 0, 0.12);
+    -moz-box-shadow: 0 7px 8px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 7px 8px rgba(0, 0, 0, 0.12);
+}
+
+.mobile-navigation {
+    /* position: fixed; */
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+    -webkit-box-shadow: 0 7px 8px rgba(0, 0, 0, 0.12);
+    -moz-box-shadow: 0 7px 8px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 7px 8px rgba(0, 0, 0, 0.12);
+}
+
+.sticky {
+  position: fixed;
+  top: 0;
+  height: 30px;
+  width: 100%
+}
+
+.sticky div ul.main-menu li a {
+    !text-transform: none;
+    padding-bottom: 9px;
+    padding-top: 9px;
+}
+
+.sticky div ul.main-menu li {
+    height: 30px;
+}
+
+.sticky div div.nav-toggle{
+  padding: 6px 0;
+}
+
+.mobile-ticky {
+  position: fixed;
+  top: 30px;
+  width: 100%
+}
+
+
+
+.section-inner {
+    height: 100%;
+}
+
+.main-menu li {
+    height: 50px;
+}
+
+.main-menu > li > a {
+    !text-transform: none;
+    letter-spacing: 0px;
+    padding-bottom: 18px;
+    padding-top: 18px;
+}
+
+.nav-toggle {
+    padding: 15px 0;
+}
+
+.main-menu li:hover > a { cursor: pointer; color: black; }
+.mobile-menu li:hover > a { cursor: pointer; color: black; }
+
+.main-menu > li:before {
+	content: "";
+}
+
+/* Posts formats  */
+
+.post .post-header:after,
+.page .post-header:after {
+    display: none;
+}
+
+.post .post-header:before,
+.page .post-header:before {
+    display: none;
+}
+
+/* FOOTER */
+
+.footer .widget-title {
+    color: #767676;
+}
+
+.widget-content ul li:before {
+    content: "";
+}
+
+.widget-content ul li {
+    line-height: 100%;
+}
+
+/* FOOTER widger Mas Visto*/
+.widgets-list-layout .widgets-list-layout-blavatar {
+    -webkit-box-shadow: 0 7px 8px rgba(0, 0, 0, 0.12);
+    -moz-box-shadow: 0 7px 8px rgba(0, 0, 0, 0.12);
+    box-shadow: 0 7px 8px rgba(0, 0, 0, 0.12);
+}
+
+.credits {
+    background-color: #2B3542;
+}

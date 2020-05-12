@@ -1,0 +1,26 @@
+jQuery(document).ready(function($) {
+    
+    window.onscroll = function() { fixing_scroll(); };
+    
+    var header = $(".navigation");
+    var header_mobile = $(".mobile-navigation");
+
+    var sticky = header.offset().top;
+
+    function fixing_scroll() {
+        
+        if (window.pageYOffset >= sticky) {
+          header.addClass("sticky");
+        } else {
+          header.removeClass("sticky");
+        }
+        console.log( window.pageYOffset + " == " + sticky + " == " + header.height() );
+        if (window.pageYOffset >= sticky + header.height() ) {
+            header_mobile.addClass("mobile-ticky");
+        } else {
+            header_mobile.removeClass("mobile-ticky");
+        }
+    } 
+    
+    
+});
