@@ -50,7 +50,7 @@ public class Individual implements Comparable<Individual>, Cloneable {
             unlockedPersonWorkLists.add(new TreeSet<>());
         }
 
-        // Add initially unlocked work units to the unlocked list
+        //  Agregue unidades de trabajo inicialmente desbloqueadas a la lista desbloqueada
         for (ArrayList<WorkUnit> projectWorkList : projectWorkLists) {
             WorkUnit workUnit = projectWorkList.get(0);
             TreeSet<WorkUnit> unlockedPersonWorkList

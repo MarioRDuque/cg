@@ -23,10 +23,10 @@ public final class ClonAlg extends Algoritmo {
     private Anticuerpo[] poblacion;
     // Cloned poblacion
     private Anticuerpo[] poblacionClonada;
-    // Cloned poblacion ranks
-    private int[] clonedPopulationRanks;
-    // Cloned poblacion size
-    private int clonedPopulationSize;
+    //  Rangos de poblacion clonada
+    private int[] rangosDePoblacionClonada;
+    // Tamanio de poblacion clonada
+    private int tamanioPoblacionClonada;
     // generador de numeros aleatorios
     private Random rand;
 
@@ -34,10 +34,10 @@ public final class ClonAlg extends Algoritmo {
      * Constructor
      */
     public ClonAlg() {
-        paramN = 100;
-        paramAnticuerposPorIteracion = 10;
+        paramN = 5;
+        paramAnticuerposPorIteracion = 3;
         paramβ = 1;
-        iteraciones = 50;
+        iteraciones = 10;
     }
 
     public ClonAlg(Individual bestIndividual) {
@@ -76,22 +76,22 @@ public final class ClonAlg extends Algoritmo {
     private void inicializar() {
         rand = new Random();
         poblacion = new Anticuerpo[paramN];
-        clonedPopulationSize = 0;
+        tamanioPoblacionClonada = 0;
         for (int i = 1; i <= paramN; i++) {
-            clonedPopulationSize += (int) ((paramβ * paramN) / ((double) i) + 0.5);
+            tamanioPoblacionClonada += (int) ((paramβ * paramN) / ((double) i) + 0.5);
         }
-        poblacionClonada = new Anticuerpo[clonedPopulationSize];
-        clonedPopulationRanks = new int[clonedPopulationSize];
+        poblacionClonada = new Anticuerpo[tamanioPoblacionClonada];
+        rangosDePoblacionClonada = new int[tamanioPoblacionClonada];
         try {
-            Anticuerpo initialAnitbody;
+            Anticuerpo anticuerpoInicial;
             if (initialIndividual == null) {//primera vez
-                initialAnitbody = new Anticuerpo(Util.readInputFile());
+                anticuerpoInicial = new Anticuerpo(Util.readInputFile());
             } else {
-                initialAnitbody = new Anticuerpo(initialIndividual.clone().getProjectWorkLists());//trabajar con los clones
+                anticuerpoInicial = new Anticuerpo(initialIndividual.clone().getProjectWorkLists());//trabajar con los clones
             }
-            poblacion[0] = initialAnitbody;
+            poblacion[0] = anticuerpoInicial;
             for (int i = 1; i < paramN; i++) {
-                poblacion[i] = (Anticuerpo) initialAnitbody.clone();
+                poblacion[i] = (Anticuerpo) anticuerpoInicial.clone();
                 poblacion[i].randomizeAll();
             }
         } catch (IOException e) {
@@ -121,7 +121,7 @@ public final class ClonAlg extends Algoritmo {
             int copies = (int) ((paramβ * paramN) / ((double) rank) + 0.5);
             for (int copy = 0; copy < copies; copy++) {
                 poblacionClonada[index] = (Anticuerpo) poblacion[rank - 1].clone();
-                clonedPopulationRanks[index] = rank;
+                rangosDePoblacionClonada[index] = rank;
                 index++;
             }
         }
@@ -137,7 +137,7 @@ public final class ClonAlg extends Algoritmo {
         //  Dejamos intacto el mejor individuo, así que comenzamos con 1
         for (int index = 1; index < poblacionClonada.length; index++) {
             Anticuerpo currentAntibody = poblacionClonada[index];
-            int rank = clonedPopulationRanks[index] - 1;
+            int rank = rangosDePoblacionClonada[index] - 1;
             int mutations = (int) (1 + 225 * 0.25 * (1 - Math.exp(-rank / tau)) + 0.5);
             currentAntibody.hyperMutate(mutations, rand);
         }

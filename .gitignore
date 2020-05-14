@@ -1,6 +1,7 @@
 /src/main/resources
-/target
+/target/
 /bin/
+/results/
 .idea/
 *.settings
 *.classpath
