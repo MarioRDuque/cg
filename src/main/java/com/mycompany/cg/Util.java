@@ -24,16 +24,12 @@ public class Util {
      * @return individual
      * @throws IOException
      */
-    public static List<ArrayList<WorkUnit>> readInputFile(String nombreArchivo)
+    public static List<ArrayList<WorkUnit>> readInputFile()
             throws IOException {
 
         InputStream inputStream;
-        if (nombreArchivo.equals("HOM-project.txt")) {
-            File archivo = new File("/data/" + nombreArchivo);
-            inputStream = new FileInputStream(archivo);
-        } else {
-            inputStream = new FileInputStream(nombreArchivo);
-        }
+        File archivo = new File("src/main/java/com/mycompany/cg/data-anticuerpo.txt");
+        inputStream = new FileInputStream(archivo);
 
         BufferedReader reader = new BufferedReader(
                 new InputStreamReader(

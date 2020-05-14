@@ -84,14 +84,10 @@ public final class ClonAlg extends Algoritmo {
         clonedPopulationRanks = new int[clonedPopulationSize];
         try {
             Anticuerpo initialAnitbody;
-            if (initialIndividual == null) {
-                initialAnitbody = new Anticuerpo(
-                        Util.readInputFile("HOM-project.txt")
-                );
+            if (initialIndividual == null) {//primera vez
+                initialAnitbody = new Anticuerpo(Util.readInputFile());
             } else {
-                initialAnitbody = new Anticuerpo(
-                        initialIndividual.clone().getProjectWorkLists()
-                );
+                initialAnitbody = new Anticuerpo(initialIndividual.clone().getProjectWorkLists());//trabajar con los clones
             }
             poblacion[0] = initialAnitbody;
             for (int i = 1; i < paramN; i++) {

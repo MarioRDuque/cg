@@ -69,8 +69,7 @@ public abstract class RunConfiguracion {
             }
 
             for (File file : inputFolder.listFiles()) {
-                Individual individual
-                        = new Individual(Util.readInputFile(file.getPath()));
+                Individual individual = new Individual(Util.readInputFile());
                 individual.calcularFitness();
                 bestIndividuals.add(individual);
             }
