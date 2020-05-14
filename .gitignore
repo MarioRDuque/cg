@@ -1,0 +1,9 @@
+/src/main/resources
+/target
+/bin/
+.idea/
+*.settings
+*.classpath
+*.project
+*.iml
+.DS_Store
